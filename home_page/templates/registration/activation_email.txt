@@ -1,0 +1,9 @@
+Welcome to Newsify,
+
+You just signed up at {{ site.name }}. Please click to activate:
+
+http://{{ site.domain }}{% url 'registration_activate' activation_key %}
+
+This link is valid for {{ expiration_days }}. If it wasn't you, please ignore the email.
+
+- NEWSIFYERS
