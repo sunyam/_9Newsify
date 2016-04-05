@@ -1,0 +1,16 @@
+body{
+	/*background:url('http://cdn.desktopwallpapers4.me/wallpapers/digital-art/1680x1050/2/14888-world-map-1680x1050-digital-art-wallpaper.jpg');*/
+	background: white url('img/world.jpg') no-repeat right bottom;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+            
+.thumbnail{
+    background-color:darkgrey;
+}
+            
+.well{
+    background-color:;
+}
