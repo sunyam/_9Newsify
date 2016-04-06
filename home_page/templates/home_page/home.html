@@ -17,6 +17,7 @@
     </head>
     
     <body>
+
           <nav class="navbar navbar-default navbar-inverse" role="navigation">
               <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,6 +30,8 @@
                   </button>
                   <a class="navbar-brand" href="#">NEWSIFY!</a>
                 </div>
+
+
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -58,8 +61,9 @@
               </div><!-- /.container-fluid -->
         </nav
     
-    <div class="container text-center">    
-            <div class="row">
+
+     <div class="container text-center">    
+<!--             <div class="row"> 
             <div class="col-sm-1"> </div>
                 <div class="col-sm-7">
     
@@ -88,6 +92,7 @@
                             </div>
                         </div>
                     </div>
+
                     
                     <div class="row">
                         <div class="col-sm-12">
@@ -155,6 +160,53 @@
                     </div>
                 </div>
             </div>
+        </div>  -->
+     
+
+
+               <!-- Upload form. Note enctype attribute! -->
+      <div id="absolute"> 
+        <form action="{% url "home" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form }}</p>
+<!--             <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+ -->
+            <p><input type="submit" value="Upload"/></p>
+        </form>
+     </div>
+
+
+         <!-- List of uploaded documents -->
+        {% if documents %}
+            <ul>
+
+                {% for document in documents %}
+                  <div class="row">
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-6"> 
+                      <div class="col-sm-12 well">
+                        <div class="thumbnail">
+
+                        <center>  <li>
+                         
+                        <a href="{{ document.docfile.url }}">{{ document.docfile.name }}<br><br>
+                        <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 900></a></li> </center>
+                        </div>
+                     </div>
+                 </div>
+                </div>
+
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents.</p>
+        {% endif %}
         </div>
-            
     </body>
