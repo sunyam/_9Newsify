@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'home_page',
     'registration',
+#    'social.apps.django_app.default'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -65,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+#                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -72,6 +75,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = '_9Newsify.wsgi.application'
 
+#AUTHENTICATION_BACKENDS = [
+#    'social.backends.facebook.FacebookOAuth2',
+#    'django.contrib.auth.backends.ModelBackend',
+#]
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -128,5 +135,23 @@ REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/'
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sunyambagga@gmail.com'
+EMAIL_HOST_PASSWORD = 'iirmofvivsnwuxay'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'admin@newsify.com'
+
+## Facebook-auth
+#SOCIAL_AUTH_FACEBOOK_KEY = ''
+#SOCIAL_AUTH_FACEBOOK_SECRET = ''
+
+
+
+
 
 

@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', include('home_page.urls')),
     url(r'^', include('home_page.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 ]
