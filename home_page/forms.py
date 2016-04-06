@@ -2,7 +2,7 @@
 from django import forms
 from home_page.models import Document
 
-class DocumentForm(forms.Form):
+class DocumentForm(forms.ModelForm):
 
     docfile = forms.FileField(
         label='Select a file'
