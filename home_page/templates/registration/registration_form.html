@@ -4,20 +4,21 @@
 		    
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- Found the below on w3 schools FONT AWESOMElink rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" -->
         
-        <!-- Found the below on w3 schools FONT AWESOME -->
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-        <!--link type="text/css" rel="stylesheet" href="C:\Users\admin\Downloads\bootstrap-3.3.6-dist\bootstrap-3.3.6-dist\css\bootstrap.min.css"-->
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <title>LOG IN</title>
+        
+        {% load staticfiles %}
+        <!--link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"-->
+        <link type="text/css" rel="stylesheet" href="{% static 'home_page/css/bootstrap.min.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        
+        <!--script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script-->
+        <script src="{% static 'home_page/js/bootstrap.min.js' %}"></script>
+        <link type="text/css" rel="stylesheet" href="{% static 'home_page/css/signuplogin_background.css' %}">
+        
+        <title>SIGN UP</title>
         <style>
-            body{
-                background: url('http://i.imgur.com/Au8To6H.jpg') fixed;
-                background-size: cover;
-                font-family: 'Raleway', sans-serif;           
-            }
+           
             .logon {
                 text-align: center;
                 color: #CCC;
@@ -28,16 +29,23 @@
               Icons
              ================= */
 
-            #btn-login {
-                background-color: antiquewhite;
-                align: center;
+            #btn-signup {
+                background-color:;
+                border: none;
+                font-size: 20px;
+                color: ;
+                text-align: center;
+                
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
             }
             a{
              background-color: #D3D3D3;  
                 margin: auto;
             }
             .panel-body{
-                background-color: aqua;
+                background-color:azure;
             }
             
         </style>
@@ -50,6 +58,10 @@
 									{{ form.as_p }}
 									<input type="submit" value="Submit" />
 			</form>-->
+         
+            <h1 class="logon">NEWSIFY! <small style="color: blue">Join our world.</small></h1>
+            
+        
             <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         
@@ -69,8 +81,7 @@
                
                 
          </div> 
-    </div>         
-	
+                
         
 	</body>
     

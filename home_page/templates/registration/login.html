@@ -3,20 +3,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         
-        <!-- Found the below on w3 schools FONT AWESOME -->
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-        <!--link type="text/css" rel="stylesheet" href="C:\Users\admin\Downloads\bootstrap-3.3.6-dist\bootstrap-3.3.6-dist\css\bootstrap.min.css"-->
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- Found the below on w3 schools FONT AWESOMElink rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" -->
+        
+        
+        {% load staticfiles %}
+        <!--link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"-->
+        <link type="text/css" rel="stylesheet" href="{% static 'home_page/css/bootstrap.min.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        
+        <!--script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script-->
+        <script src="{% static 'home_page/js/bootstrap.min.js' %}"></script>
+        <link type="text/css" rel="stylesheet" href="{% static 'home_page/css/signuplogin_background.css' %}">
+        
         <title>LOG IN</title>
         <style>
-            body{
-                background: url('http://i.imgur.com/Au8To6H.jpg') fixed;
-                background-size: cover;
-                font-family: 'Raleway', sans-serif;           
-            }
+            
             .logon {
                 text-align: center;
                 color: #CCC;
@@ -27,84 +29,16 @@
               Icons
              ================= */
 
-            /* footer social icons */
-            ul.social-network {
-                list-style: none;
-                display: inline;
-                
-                padding: 100px;/*MOST IMPORTANT IN ALIGNING*/
-                /*margin-left:0 !important;
-                padding: 0;-->*/
-            }
-            ul.social-network li {
-                display: inline;
-                margin: 0 5px;
-            }
-
-
-            /* footer social icons */
-            .social-network a.icoRss:hover {
-                background-color: #F56505;
-            }
-            .social-network a.icoFacebook:hover {
-                background-color:#3B5998;
-            }
-            .social-network a.icoTwitter:hover {
-                background-color:#33ccff;
-            }
-            .social-network a.icoGoogle:hover {
-                background-color:#BD3518;
-            }
-            .social-network a.icoVimeo:hover {
-                background-color:#0590B8;
-            }
-            .social-network a.icoLinkedin:hover {
-                background-color:#007bb7;
-            }
-            .social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
-            .social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
-                color:#fff;
-            }
-            a.socialIcon:hover, .socialHoverClass {
-                color:#44BCDD;
-            }
-
-            .social-circle li a {
-                display:inline-block;
-                position:relative;
-                margin:0 auto 0 auto;
-                -moz-border-radius:50%;
-                -webkit-border-radius:50%;
-                border-radius:50%;
-                text-align:center;
-                width: 50px;
-                height: 50px;
-                font-size:20px;
-            }
-            .social-circle li i {
-                margin:0;
-                line-height:50px;
+            #btn-login{
+                background-color: #4CAF50;
+                border: none;
+                font-size: 20px;
+                color: white;
                 text-align: center;
-            }
-
-            .social-circle li a:hover i, .triggeredHover {
-                -moz-transform: rotate(360deg);
-                -webkit-transform: rotate(360deg);
-                -ms--transform: rotate(360deg);
-                transform: rotate(360deg);
-                -webkit-transition: all 0.2s;
-                -moz-transition: all 0.2s;
-                -o-transition: all 0.2s;
-                -ms-transition: all 0.2s;
-                transition: all 0.2s;
-            }
-            .social-circle i {
-                color: #fff;
-                -webkit-transition: all 0.8s;
-                -moz-transition: all 0.8s;
-                -o-transition: all 0.8s;
-                -ms-transition: all 0.8s;
-                transition: all 0.8s;
+                
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
             }
 
             a{
@@ -117,55 +51,50 @@
     </head>
     
 <body>    
-<div class="container">
-    <h1 class="logon">NEWSIFY! <small style="color: blue">Join our world.</small></h1>
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-            <div class="panel panel-info" >
+    <div class="container">
+        <h1 class="logon">NEWSIFY! <small style="color: blue">Join our world.</small></h1>
+            <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+                <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title">Sign In</div>
                         <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
                     </div>     
 
                     <div style="padding-top:30px" class="panel-body" >
-
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                            
+                        
                         <form id="loginform" method="post" action="." class="form-horizontal" role="form">
                             {% csrf_token %}        
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username">                                        
-                                    </div>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username">                            
+                            </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="Password">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="login-password" type="password" class="form-control" name="password" placeholder="Password">
                             </div>
-                                    
-
-                                
+                                                            
                             <div class="input-group">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                        </label>
-                                      </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                                    </label>
+                                </div>
                             </div>
-
 
                             <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
 
-                                    <div class="col-sm-12 controls">
+                                <div class="col-sm-12 controls">
                                       <!--<a id="btn-login" href="#" class="btn btn-success">Login  </a>
                                       <a id="btn-fblogin" href="#" class="btn btn-primary" style="float:right">Login with Facebook</a>-->
-                                        <input type="submit" id="btn-login" value="Login">
-                                    </div>
+                                    <input type="submit" id="btn-login" value="Login">
+                                </div>
                             </div>
 
-
                             <div class="form-group">
-                                    <div class="col-md-12 control">
+                                <div class="col-md-12 control">
                                         <!--<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                             Don't have an account! 
                                         <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
@@ -179,10 +108,13 @@
 
 
 
-                        </div>                     
-                    </div>  
-        </div>
+                    </div>                     
+                </div>  
+            </div>
+    </div>
 </body>
+    
+
 <!--<body>    
 	<div class="container">
         <h1 class="logon">NEWSIFY! <small>Join our world.</small></h1>

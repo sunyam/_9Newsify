@@ -1,0 +1,18 @@
+body{
+    background: url('img/signup_background.jpg') fixed;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;           
+}
+            
+h1{
+    text-align: center;
+    color: crimson;
+    font-family: monospace;
+    font-size: 72px;
+}
+
+p{
+    text-align: center;
+    color:brown;
+    font-size: 32px;
+}
