@@ -66,7 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social.apps.django_app.context_processors.backends',
+#                'social.apps.django_app.context_processors.backends',
 #                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
@@ -150,7 +150,9 @@ DEFAULT_FROM_EMAIL = 'admin@newsify.com'
 #SOCIAL_AUTH_FACEBOOK_KEY = ''
 #SOCIAL_AUTH_FACEBOOK_SECRET = ''
 
-
+# Media upload
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 

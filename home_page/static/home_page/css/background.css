@@ -14,3 +14,11 @@ body{
 .well{
     background-color:;
 }
+
+#absolute {
+ position: absolute;
+top: 100px;
+left: 85%;
+margin-left:-250px;
+width: 500px; 
+}
