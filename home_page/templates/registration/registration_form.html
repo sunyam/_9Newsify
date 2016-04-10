@@ -30,10 +30,10 @@
              ================= */
 
             #btn-signup {
-                background-color:;
-                border: none;
+                background-color:#4CAF50;
+                border:none;
                 font-size: 20px;
-                color: ;
+                color:white;
                 text-align: center;
                 
                 text-decoration: none;
@@ -46,6 +46,16 @@
             }
             .panel-body{
                 background-color:azure;
+            }
+            
+            .buttonHolder{ 
+                text-align:; 
+            }
+            
+            #signupbox{
+                /*border-style: solid;
+                border-color: red;
+                border-left-width: thick;*/
             }
             
         </style>
@@ -62,16 +72,16 @@
             <h1 class="logon">NEWSIFY! <small style="color: blue">Join our world.</small></h1>
             
         
-            <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div id="signupbox" style="margin-top:60px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         
                         <div class="panel-body">
                             <form id="signupform" method="post" action="." class="form-horizontal" role="form">
                                 {% csrf_token %}
                                 {{ form.as_p }}
-                                
+                                <div class="buttonHolder">
                                 <input type="submit" id="btn-signup" value="SignUp" />
-                                
+                                </div>
                                 
                             </form>
                          </div>

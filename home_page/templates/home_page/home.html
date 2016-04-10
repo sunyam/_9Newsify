@@ -15,6 +15,11 @@
         <title>Let there be light!</title>
         
         <style>
+            #file_caption{
+                font-size:24px;
+                font-family: sans-serif;
+                color:white;
+            }
         	#displayname {
         		font-size:2em;
                 color: aliceblue;
@@ -25,7 +30,7 @@
     </head>
     
     <body>
-          <nav class="navbar navbar-default navbar-inverse" role="navigation">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
               <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -40,87 +45,133 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Breaking</a></li>
-                    <li><a href="#">Specials</a></li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <span class="caret"></span></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">India</a></li>
-                        <li><a href="#">World</a></li>
-                        <li><a href="#">Politics</a></li>
-                        </ul>
-                    </li>
-                  </ul>
-                  <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Search</button>
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                  <li id='displayname'>{% if request.user.first_name %}
-						{{request.user.first_name}}
-					  {% else %}
-						{{ request.user.username }}
-					  {% endif %}</li>                  
-                    <li><a href="/accounts/login">Login</a></li>
-                    <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Breaking</a></li>
+                        <li><a href="#">Specials</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">India</a></li>
+                                <li><a href="#">World</a></li>
+                                <li><a href="#">Sports</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id='displayname'>{% if request.user.first_name %}
+                            {{request.user.first_name}}
+                          {% else %}
+                            {{ request.user.username }}
+                          {% endif %}</li>                  
+                        <li><a href="/accounts/login">LogIn</a></li>
+                        <li><a href="{% url 'auth_logout' %}">LogOut</a></li>
 
-                  </ul>
+                    </ul>
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
         </nav
     
-    <div class="container text-center">    
+        <div class="container text-center">    
                 
                      <!-- Upload form. Note enctype attribute! -->
-      <div id="absolute"> 
-        <form action="{% url "home" %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <p>{{ form }}</p>
-<!--             <p>{{ form.non_field_errors }}</p>
+            <br><br><br>
+            <div id="absolute"> 
+                <form action="{% url "home" %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>{{ form }}</p>
+        <!--             <p>{{ form.non_field_errors }}</p>
 
-            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+                    <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
 
-            <p>
-                {{ form.docfile.errors }}
-                {{ form.docfile }}
-            </p>
- -->
-            <p><input type="submit" value="Upload"/></p>
-        </form>
-     </div>
+                    <p>
+                        {{ form.docfile.errors }}
+                        {{ form.docfile }}
+                    </p>
+         -->
+                    <p><input type="submit" id="btn-upload" value="Upload"/></p>
+                </form>
+             </div>
 
-
+                  
+                      
+              
+              
          <!-- List of uploaded documents -->
-        {% if documents %}
-            <ul>
+            {% if documents %}
+                <ul>
 
-                {% for document in documents %}
-                  <div class="row">
-                  <div class="col-sm-1"></div>
-                  <div class="col-sm-6"> 
-                      <div class="col-sm-12 well">
-                        <div class="thumbnail">
+                    {% for document in documents %}
+                      <div class="row">
+                          <div class="col-sm-1"></div>
+                          <div class="col-sm-6"> 
+                              <div class="col-sm-12 well">
+                                    <div class="thumbnail">
 
-                        <center>  <li>
-                         
-                        {{document.title}}<br>
-                        <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
-                        <!-- {{document.docfile}} -->
-                        <!-- <a href="{{ document.docfile.url }}">{{ document.docfile.name }}<br><br>
-                        <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 900></a></li> </center> -->
+                                    <center>  <li id="file_caption">
+
+                                    {{document.title}}<br>
+                                    <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
+                                        </li>
+                                        
+                                        
+                                        
+                                        <!--LIKE DISLiKE-->
+                                        <div class="stats">
+                                            <a href="#" class="btn btn-default stat-item">
+                                                <i class="glyphicon glyphicon-thumbs-up"></i>2
+                                            </a>
+                                            <a href="#" class="btn btn-default stat-item">
+                                                <i class="glyphicon glyphicon-thumbs-down"></i>12
+                                            </a>
+                                        </div>
+                                        
+                                        
+                                        
+                                    <!-- {{document.docfile}} -->
+                                    <!-- <a href="{{ document.docfile.url }}">{{ document.docfile.name }}<br><br>
+                                    <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 900></a></li> </center> -->
+                                    </div>
+                              </div>
+                          </div>
+                              
+                              
+                          
+                              
+                              
+                      </div>
+
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No documents.</p>
+            {% endif %}
+                    
+                    
+                    <!--<div class="row">
+                          <div class="col-sm-8"></div>
+                          <div class="col-sm-3 well">
+                            <div class="thumbnail">
+                                <p style="font-size: 20px">Upcoming Events:</p>
+                                <a href="http://edition.cnn.com/specials/politics/2016-election">US Presidential Elections</a>
+                                <a href="http://economictimes.indiatimes.com/budget2016"><br>Indian Budget</a>
+
+                            </div>      
+                            <div class="thumbnail">
+                                <p>ADS</p>
+                            </div>
+                            <div class="thumbnail">
+                                <p>ADS</p>
+                            </div>
                         </div>
-                     </div>
-                 </div>
-                </div>
-
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No documents.</p>
-        {% endif %}
+                    </div>-->
+                    
+                    
         </div>
 
                 
@@ -131,7 +182,9 @@
                 
                 
                 
-                <!--<div class="col-sm-3 well">
+                <!--
+                    <div class="col-sm-1"></div><br><br><br><br><br><br><br>
+                    <div class="col-sm-3 well">
                     <div class="thumbnail">
                         <p style="font-size: 20px">Upcoming Events:</p>
                         <a href="http://edition.cnn.com/specials/politics/2016-election">US Presidential Elections</a>
@@ -145,7 +198,7 @@
                         <p>ADS</p>
                     </div>
                 </div>-->
-    </div>
+    
     
             
     </body>
