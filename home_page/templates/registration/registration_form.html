@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+{% load crispy_forms_tags %}
+
 <html>
 	<head lang="en">
 		    
@@ -46,6 +49,7 @@
             }
             .panel-body{
                 background-color:azure;
+                
             }
             
             .buttonHolder{ 
@@ -76,12 +80,12 @@
                     <div class="panel panel-info">
                         
                         <div class="panel-body">
-                            <form id="signupform" method="post" action="." class="form-horizontal" role="form">
+                            <form id="signupform" method="post" action="." class="form-horizontal col-md-7" role="form">
                                 {% csrf_token %}
-                                {{ form.as_p }}
-                                <div class="buttonHolder">
-                                <input type="submit" id="btn-signup" value="SignUp" />
-                                </div>
+                                {{ form|crispy }}
+                                
+                                <input type="submit" class="btn btn-primary"  value="SignUp" />  
+                               
                                 
                             </form>
                          </div>

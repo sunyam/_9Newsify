@@ -1,0 +1,42 @@
+/*body{
+	/*background:url('http://cdn.desktopwallpapers4.me/wallpapers/digital-art/1680x1050/2/14888-world-map-1680x1050-digital-art-wallpaper.jpg');*/
+	/*background: white url('img/cloud.jpg') no-repeat right bottom;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+*/            
+body{
+    background: url('img/world_1.jpg') fixed;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;           
+}
+       
+.thumbnail{
+    background-color:black;
+}
+            
+.well{
+    background-color:white;
+}
+
+#absolute {
+ position: fixed;
+top: 100px;
+left: 85%;
+margin-left:-250px;
+width: 500px; 
+}
+
+#btn-upload{
+                background-color: #4CAF50;
+                border: none;
+                font-size: 20px;
+                color: white;
+                text-align: center;
+                
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+}

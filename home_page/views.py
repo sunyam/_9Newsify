@@ -14,6 +14,7 @@ def login(request):
     return render(request, 'home_page/login.html')
 
 def home(request):
+    
     # Handle file upload
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -26,7 +27,7 @@ def home(request):
             return HttpResponseRedirect(reverse('home_page.views.home'))
     else:
         form = DocumentForm()  # A empty, unbound form
-
+  
     # Load documents for the list page
     documents = Document.objects.all()
 

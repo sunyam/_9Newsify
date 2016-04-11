@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load crispy_forms_tags %}
 <html lang=en>
     <head>
         <meta charset="utf-8">
@@ -82,19 +83,12 @@
                      <!-- Upload form. Note enctype attribute! -->
             <br><br><br>
             <div id="absolute"> 
-                <form action="{% url "home" %}" method="post" enctype="multipart/form-data">
+                <form action="{% url "home" %}" method="post" enctype="multipart/form-data" class = "col-md-6">
                     {% csrf_token %}
-                    <p>{{ form }}</p>
-        <!--             <p>{{ form.non_field_errors }}</p>
-
-                    <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
-
-                    <p>
-                        {{ form.docfile.errors }}
-                        {{ form.docfile }}
-                    </p>
-         -->
-                    <p><input type="submit" id="btn-upload" value="Upload"/></p>
+                   
+                    <p>{{ form|crispy }}</p>
+        
+                    <p><input type="submit" class = "btn btn-primary" value="Upload"/></p>
                 </form>
              </div>
 
