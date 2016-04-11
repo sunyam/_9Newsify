@@ -83,7 +83,7 @@
                      <!-- Upload form. Note enctype attribute! -->
             <br><br><br>
             <div id="absolute"> 
-                <form action="{% url "home" %}" method="post" enctype="multipart/form-data" class = "col-md-6">
+                <form action="{% url "home" %}" method="post" enctype="multipart/form-data" class = "btn btn-primary col-md-6">
                     {% csrf_token %}
                    
                     <p>{{ form|crispy }}</p>
