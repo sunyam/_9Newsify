@@ -21,6 +21,7 @@
                 font-family: sans-serif;
                 color:white;
             }
+        	
         	#displayname {
                 margin-top: 8px;
         		font-size:1.5em;
@@ -28,13 +29,10 @@
                 color: aliceblue;
         		background-color:;
         	}
-            #upcoming{
-                position: 
-            }
-            #upcome{
-                position:  ;
-                
-            }
+        	
+        	#logo {
+        		font-family: "sans-serif";
+        	}
         </style>
         
     </head>
@@ -50,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">NEWSIFY!</a>
+                  <a id="logo" class="navbar-brand" href="#">NEWSIFY!</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -78,9 +76,15 @@
                             {{request.user.first_name}}
                           {% else %}
                             {{ request.user.username }}
-                          {% endif %}</li>                  
-                        <li><a href="/accounts/login">LogIn</a></li>
-                        <li><a href="{% url 'auth_logout' %}">LogOut</a></li>
+                          {% endif %}
+                        </li>                  
+                        <li>
+                        	{% if request.user.is_authenticated %}
+                        	{% else %}
+                        		<a href="/accounts/login">Login</a>
+                        	{% endif %}
+                        </li>
+                        <li><a href="{% url 'auth_logout' %}">Logout</a></li>
 
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -91,6 +95,8 @@
                 
                      <!-- Upload form. Note enctype attribute! -->
             <br><br><br>
+            
+            {% if request.user.is_authenticated %}
             <div id="absolute"> 
                 <form action="{% url "home" %}" method="post" enctype="multipart/form-data" class = "btn btn-primary col-md-6">
                     {% csrf_token %}
@@ -100,6 +106,7 @@
                     <p><input type="submit" class = "btn btn-primary" value="Upload"/></p>
                 </form>
              </div>
+             {% endif %}
 
                   
                       
