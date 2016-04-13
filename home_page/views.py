@@ -10,6 +10,8 @@ from home_page.forms import DocumentForm
 # def home(request):
 #     return render(request, 'home_page/home.html')
 
+
+
 def login(request):
     return render(request, 'home_page/login.html')
 
@@ -28,6 +30,8 @@ def home(request):
     else:
         form = DocumentForm()  # A empty, unbound form
   
+
+    
     # Load documents for the list page
     documents = Document.objects.all()
 
@@ -37,3 +41,4 @@ def home(request):
         {'documents': documents, 'form': form},
         context_instance=RequestContext(request)
     )
+

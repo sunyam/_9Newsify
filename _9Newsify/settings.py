@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #third party apps
-    'crispy_forms'
+    'crispy_forms',
+    'secretballot',
+    'likes',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -53,6 +56,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #for likes unlikes
+    "likes.middleware.SecretBallotUserIpUseragentMiddleware",
+
 ]
 
 ROOT_URLCONF = '_9Newsify.urls'
@@ -68,6 +74,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #like unlike
+                "django.core.context_processors.request",
 #                'social.apps.django_app.context_processors.backends',
 #                'social.apps.django_app.context_processors.login_redirect',
             ],

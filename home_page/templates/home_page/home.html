@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load crispy_forms_tags %}
+{% load likes_inclusion_tags %}
+
 <html lang=en>
     <head>
         <meta charset="utf-8">
@@ -13,6 +15,9 @@
         <!--script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script-->
         <script src="{% static 'home_page/js/bootstrap.min.js' %}"></script>
         <link type="text/css" rel="stylesheet" href="{% static 'home_page/css/background.css' %}">
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+
         <title>Let there be light!</title>
         
         <style>
@@ -106,11 +111,14 @@
               
          <div class="row">
              <div class="col-sm-8">
+
                  <!-- List of uploaded documents -->
                     {% if documents %}
                         <ul style="list-style: none;">
 
                             {% for document in documents %}
+                                {% likes document %} 
+
                               <div class="row">
                                   <div class="col-sm-1"></div>
                                   <div class="col-sm-11">
@@ -124,17 +132,17 @@
                                             <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
                                                 </li>
 
-
+                                            <!-- -->
 
                                                 <!--LIKE DISLiKE-->
-                                                <div class="stats">
+                                               <!--  <div class="stats">
                                                     <a href="#" class="btn btn-default stat-item">
                                                         <i class="glyphicon glyphicon-thumbs-up"></i>2
                                                     </a>
                                                     <a href="#" class="btn btn-default stat-item">
                                                         <i class="glyphicon glyphicon-thumbs-down"></i>12
                                                     </a>
-                                                </div>
+                                                </div> -->
 
 
 
