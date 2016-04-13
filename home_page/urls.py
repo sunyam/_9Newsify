@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
         url('^$', views.home, name='home'),
-        url('^login', views.login, name='login')
+        url('^india', views.cat_india, name='cat_india'),
+        url('^world', views.cat_world, name='cat_world'),
+        url('^sports', views.cat_sports, name='cat_sports'),
     ]

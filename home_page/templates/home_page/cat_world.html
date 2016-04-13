@@ -96,17 +96,6 @@
                      <!-- Upload form. Note enctype attribute! -->
             <br><br><br>
             
-            {% if request.user.is_authenticated %}
-            <div id="absolute"> 
-                <form action="{% url "home" %}" method="post" enctype="multipart/form-data" class = "btn btn-primary col-md-6">
-                    {% csrf_token %}
-                   
-                    <p>{{ form|crispy }}</p>
-        
-                    <p><input type="submit" class = "btn btn-primary" value="Upload"/></p>
-                </form>
-             </div>
-             {% endif %}
 
                   
                       
