@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^$', include('home_page.urls')),
     url(r'^', include('home_page.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^likes/', include('likes.urls')),
 #    url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^$', RedirectView.as_view(url='/home_page/list/', permanent=True)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

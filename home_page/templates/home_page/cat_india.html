@@ -107,6 +107,7 @@
                         <ul style="list-style: none;">
 
                             {% for document in documents %}
+                            {%if document.categories == 'IN'%}
                               <div class="row">
                                   <div class="col-sm-1"></div>
                                   <div class="col-sm-11">
@@ -146,7 +147,7 @@
 
 
                               </div>
-
+                            {%endif%}
                             {% endfor %}
                         </ul>
                     {% else %}
