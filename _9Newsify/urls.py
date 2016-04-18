@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
+from updown.views import AddRatingFromModel
 
 
 urlpatterns = [
@@ -29,5 +30,10 @@ urlpatterns = [
     #url(r'^likes/', include('likes.urls')),
 #    url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^$', RedirectView.as_view(url='/home_page/list/', permanent=True)),
+    url(r"^(?P<object_id>\d+)/rate/(?P<score>[\d\-]+)$", AddRatingFromModel(), {
+        'app_label' : 'home_page',
+        'model': 'Document',
+        'field_name': 'rating',
+    }, name="image_rating"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

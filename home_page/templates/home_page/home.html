@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load crispy_forms_tags %}
 
+
 <html lang=en>
     <head>
         <meta charset="utf-8">
@@ -37,14 +38,18 @@
         </style>
         
         <script type="text/javascript">
-            function upVote(doc) {
+            function upVote(id) {
                 
                 // document.getElementById("like_button").style.color = 'red';
-                //
+                
+                window.alert(id)
+                window.location = id + '/rate/1'
                 
             }
-            function downVote(doc) {
+            function downVote(ids) {
                 
+                window.alert(less fuck you)
+                window.location = ids + '/rate/-1'
                // {{doc.likes}} = 1
                // document.getElementById("like_button").style.color = 'red';
                 
@@ -145,7 +150,7 @@
                                             <center>  <li id="file_caption">
 
                                             {{document.title}}<br>
-
+                                            {{document.id}}
                                             <!-- {{document.categories}}<br> -->
                                             <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
                                                 </li>
@@ -153,11 +158,12 @@
 
                                                 <!--LIKE DISLiKE-->
                                               <div class="stats">
-                                                    <a href="#" class="btn btn-default stat-item">
-                                                      <button id="like_button" onclick="upVote(document)"><i class="glyphicon glyphicon-thumbs-up"></i></button>{{document.likes}}
+                                                    <a href="{{document.id}}/rate/1" class="btn btn-default stat-item">
+                                                      <button id="like_button" ><i class="glyphicon glyphicon-thumbs-up"></i></button>
+                                                    
                                                     </a>
-                                                    <a href="#" class="btn btn-default stat-item">
-                                                        <button id="dislike_button" onclick="downVote(document)"><i class="glyphicon glyphicon-thumbs-down"></i></button>{{document.likes}}
+                                                    <a href="{{document.id}}/rate/-1" class="btn btn-default stat-item">
+                                                        <button id="dislike_button" ><i class="glyphicon glyphicon-thumbs-down"></i></button>
                                                     </a>
                                                 </div>
 

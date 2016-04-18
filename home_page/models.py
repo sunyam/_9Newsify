@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 #import secretballot
+from updown.fields import RatingField
 
 # Create your models here.
 class Document(models.Model):
@@ -24,7 +25,8 @@ class Document(models.Model):
     	)
 
     categories = models.CharField(max_length=2, choices=categoryChoices, default='None')
-    likes = models.IntegerField(default=0) 
+    #likes = models.IntegerField(default=0) 
     #likers = models.ManyToManyField(UserProfile,blank=True)
+    rating = RatingField(can_change_vote=True)
     
 
