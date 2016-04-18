@@ -12,11 +12,13 @@ class DocumentForm(forms.ModelForm):
     INDIA = 'IN'
     WORLD = 'WO'
     SPORTS = 'SP'
+    MISCELLANEOUS = 'MI'
 
     categoryChoices = (
     	(INDIA, 'India'),
     	(WORLD, 'World'),
     	(SPORTS, 'Sports'),
+        (MISCELLANEOUS, 'Miscellaneous'),
     	)
     categories = forms.ChoiceField(choices=categoryChoices,
     									required = True)

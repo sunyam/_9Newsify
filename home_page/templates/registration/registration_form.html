@@ -79,12 +79,16 @@
             <div id="signupbox" style="margin-top:60px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         
+                        <div class="panel-heading">
+                            <div class="panel-title">Sign Up</div>
+                            <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                        </div>
                         <div class="panel-body">
-                            <form id="signupform" method="post" action="." class="form-horizontal col-md-7" role="form">
+                            <form id="signupform" method="post" action="." class="form-horizontal col-md-12" role="form">
                                 {% csrf_token %}
                                 {{ form|crispy }}
                                 
-                                <input type="submit" class="btn btn-primary"  value="SignUp" />  
+                                <input type="submit" class="btn btn-primary btn-lg btn-block"  value="SignUp" />  
                                
                                 
                             </form>

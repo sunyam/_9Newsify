@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
      #for likes unlikes
-    "likes.middleware.SecretBallotUserIpUseragentMiddleware",
+    #"likes.middleware.SecretBallotUserIpUseragentMiddleware",
 
 
 ]

@@ -19,6 +19,9 @@ def cat_world(request):
 def cat_sports(request):
     return render(request, 'home_page/cat_sports.html')
 
+def cat_misc(request):
+    return render(request, 'home_page/cat_misc.html')
+
 
 
 
@@ -76,6 +79,17 @@ def cat_sports(request):
     # Render list page with the documents and the form
     return render_to_response(
         'home_page/cat_sports.html', #'list.html',
+        {'documents': documents},
+        context_instance=RequestContext(request)
+    )
+
+def cat_misc(request):
+    # Load documents for the list page
+    documents = Document.objects.all()
+
+    # Render list page with the documents and the form
+    return render_to_response(
+        'home_page/cat_misc.html', #'list.html',
         {'documents': documents},
         context_instance=RequestContext(request)
     )

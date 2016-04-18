@@ -36,6 +36,21 @@
         	}
         </style>
         
+        <script type="text/javascript">
+            function upVote(doc) {
+                
+                // document.getElementById("like_button").style.color = 'red';
+                //
+                
+            }
+            function downVote(doc) {
+                
+               // {{doc.likes}} = 1
+               // document.getElementById("like_button").style.color = 'red';
+                
+            }
+        </script>
+        
     </head>
     
     <body>
@@ -63,6 +78,7 @@
                                 <li><a href="http://127.0.0.1:8000/india.html">India</a></li>
                                 <li><a href="http://127.0.0.1:8000/world.html">World</a></li>
                                 <li><a href="http://127.0.0.1:8000/sports.html">Sports</a></li>
+                                <li><a href="http://127.0.0.1:8000/misc.html">Miscellaneous</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -129,22 +145,21 @@
                                             <center>  <li id="file_caption">
 
                                             {{document.title}}<br>
+
                                             <!-- {{document.categories}}<br> -->
                                             <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
                                                 </li>
 
 
-                                                
                                                 <!--LIKE DISLiKE-->
-                                              <!--   <div class="stats">
+                                              <div class="stats">
                                                     <a href="#" class="btn btn-default stat-item">
-                                                        <i class="glyphicon glyphicon-thumbs-up"></i>2
+                                                      <button id="like_button" onclick="upVote(document)"><i class="glyphicon glyphicon-thumbs-up"></i></button>{{document.likes}}
                                                     </a>
                                                     <a href="#" class="btn btn-default stat-item">
-                                                        <i class="glyphicon glyphicon-thumbs-down"></i>12
+                                                        <button id="dislike_button" onclick="downVote(document)"><i class="glyphicon glyphicon-thumbs-down"></i></button>{{document.likes}}
                                                     </a>
-                                                </div> -->
-
+                                                </div>
 
 
                                             <!-- {{document.docfile}} -->
