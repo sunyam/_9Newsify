@@ -43,11 +43,15 @@
               width: 80px;
             }
             
-
-            
-
         </style>
-        
+
+
+		<script type="text/javascript">
+			function myFunction() {
+				document.getElementById("like_button").style.color = "red";
+			}
+		</script>
+                    
     </head>
     
     <body>
@@ -149,10 +153,10 @@
                                                 <!--LIKE DISLiKE-->
                                                 <div class="stats">
                                                     <a href="#" class="btn btn-default stat-item">
-                                                        <i class="glyphicon glyphicon-thumbs-up"></i>2
+                                                        <button id="like_button" onclick="myFunction()"><i class="glyphicon glyphicon-thumbs-up"></i>2</button>
                                                     </a>
                                                     <a href="#" class="btn btn-default stat-item">
-                                                        <i class="glyphicon glyphicon-thumbs-down"></i>12
+                                                        <button  id="dislike_button" onclick="myFunction()"><i class="glyphicon glyphicon-thumbs-down"></i>12</button>
                                                     </a>
                                                 </div>
 
