@@ -8,7 +8,7 @@
 }
 */            
 body{
-    background: url('img/newspapers.jpg') fixed;
+    background: url('img/newspapers_1.jpg') fixed;
     background-size: cover;
     font-family: 'Raleway', sans-serif;           
 }
@@ -18,7 +18,7 @@ body{
 }
             
 .well{
-    background-color:white;
+    background-color:whitesmoke;
 }
 
 #absolute {
@@ -39,4 +39,44 @@ width: 500px;
                 text-decoration: none;
                 margin: 4px 2px;
                 cursor: pointer;
+}
+
+
+
+#file_caption{
+    font-size:24px;
+    font-family: sans-serif;
+    color:white;
+}
+        	
+#displayname {
+    margin-top: 8px;
+	font-size:1.5em;
+    font-family: monospace;
+    color: aliceblue;
+	background-color:;
+}
+        	
+#logo {
+	font-family: "sans-serif";'
+    color:;
+}
+            
+            
+#navitem li a{
+    background-color: ;
+    color:;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navitem li a:hover:not(.active) {
+    background-color:mediumaquamarine;
+}
+
+.active {
+    background-color:lightcyan;
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load crispy_forms_tags %}
-
 <html lang=en>
     <head>
         <meta charset="utf-8">
@@ -20,14 +19,6 @@
             
         </style>
         
-        <script type="text/javascript">
-            function myFunction() {
-                
-                document.getElementById("like_button").style.color = 'red';
-                
-            }
-        </script>
-        
     </head>
     
     <body>
@@ -41,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a id="logo" class="navbar-brand active" href="http://127.0.0.1:8000/">NEWSIFY!</a>
+                  <a id="logo" class="navbar-brand" href="http://127.0.0.1:8000/">NEWSIFY!</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,7 +42,7 @@
                         <li><a href="http://127.0.0.1:8000/india.html">India</a></li>
                         <li><a href="http://127.0.0.1:8000/world.html">World</a></li>
                         <li><a href="http://127.0.0.1:8000/sports.html">Sports</a></li>
-                        <li><a href="http://127.0.0.1:8000/misc.html">Miscellaneous</a></li>
+                        <li><a class="active" href="http://127.0.0.1:8000/misc.html">Miscellaneous</a></li>
                         <li><a href="http://127.0.0.1:8000/specials.html">Specials</a></li>    
                         
                     </ul>
@@ -61,7 +52,7 @@
                         </div>
                         <button type="submit" class="btn btn-default">Search</button>
                     </form>
-                    <ul id="navitem" class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
                         <li id='displayname'>{% if request.user.first_name %}
                             {{request.user.first_name}}
                           {% else %}
@@ -86,17 +77,6 @@
                      <!-- Upload form. Note enctype attribute! -->
             <br><br><br>
             
-            {% if request.user.is_authenticated %}
-            <div id="absolute"> 
-                <form action="{% url "home" %}" method="post" enctype="multipart/form-data" class = "btn btn-primary col-md-6">
-                    {% csrf_token %}
-                   
-                    <p>{{ form|crispy }}</p>
-        
-                    <p><input type="submit" class = "btn btn-primary" value="Upload"/></p>
-                </form>
-             </div>
-             {% endif %}
 
                   
                       
@@ -108,6 +88,7 @@
                         <ul style="list-style: none;">
 
                             {% for document in documents %}
+                            {%if document.categories == 'MI'%}
                               <div class="row">
                                   <div class="col-sm-1"></div>
                                   <div class="col-sm-11">
@@ -118,21 +99,21 @@
                                             <center>  <li id="file_caption">
 
                                             {{document.title}}<br>
-                                            <!-- {{document.categories}}<br> -->
                                             <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
                                                 </li>
 
 
-                                                
+
                                                 <!--LIKE DISLiKE-->
-                                              <div class="stats">
+                                                <div class="stats">
                                                     <a href="#" class="btn btn-default stat-item">
-                                                      <button id="like_button" onclick="myFunction()"><i class="glyphicon glyphicon-thumbs-up"></i></button>2
+                                                        <i class="glyphicon glyphicon-thumbs-up"></i>2
                                                     </a>
                                                     <a href="#" class="btn btn-default stat-item">
-                                                        <button id="dislike_button" onclick=myFunction()><i class="glyphicon glyphicon-thumbs-down"></i></button>12
+                                                        <i class="glyphicon glyphicon-thumbs-down"></i>12
                                                     </a>
                                                 </div>
+
 
 
                                             <!-- {{document.docfile}} -->
@@ -147,7 +128,7 @@
 
 
                               </div>
-
+                            {%endif%}
                             {% endfor %}
                         </ul>
                     {% else %}
@@ -156,6 +137,7 @@
                  </div>
                  
              </div>
+             
                     
                     
                     

@@ -12,19 +12,18 @@ class Document(models.Model):
     INDIA = 'IN'
     WORLD = 'WO'
     SPORTS = 'SP'
-    
+    MISCELLANEOUS = 'MI'
 
 
     categoryChoices = (
     	(INDIA, 'India'),
     	(WORLD, 'World'),
     	(SPORTS, 'Sports'),
+        (MISCELLANEOUS, 'Miscellaneous'),
 
     	)
 
-    categories = models.CharField(max_length=2, 
-    									choices=categoryChoices,
-    									default='None')
+    categories = models.CharField(max_length=2, choices=categoryChoices, default='None')
     #likers = models.ManyToManyField(UserProfile,blank=True)
     
 

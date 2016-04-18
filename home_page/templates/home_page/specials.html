@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+
+<html lang=en>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        {% load staticfiles %}
+        <!--link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"-->
+        <link type="text/css" rel="stylesheet" href="{% static 'home_page/css/bootstrap.min.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        
+        <!--script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script-->
+        <script src="{% static 'home_page/js/bootstrap.min.js' %}"></script>
+        <link type="text/css" rel="stylesheet" href="{% static 'home_page/css/background.css' %}">
+        <title>Let there be light!</title>
+        
+        <style>
+            h1{
+                position: ;
+            }
+        </style>
+        
+        <script type="text/javascript">
+            function myFunction() {
+                
+                document.getElementById("like_button").style.color = 'red';
+                
+            }
+        </script>
+        
+    </head>
+    
+    <body>
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a id="logo" class="navbar-brand " href="http://127.0.0.1:8000/">NEWSIFY!</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul id="navitem" class="nav navbar-nav">
+                        
+                        <li><a href="http://127.0.0.1:8000/india.html">India</a></li>
+                        <li><a href="http://127.0.0.1:8000/world.html">World</a></li>
+                        <li><a href="http://127.0.0.1:8000/sports.html">Sports</a></li>
+                        <li><a href="http://127.0.0.1:8000/misc.html">Miscellaneous</a></li>
+                        <li><a class="active" href="http://127.0.0.1:8000/specials.html">Specials</a></li>    
+                        
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                    <ul id="navitem" class="nav navbar-nav navbar-right">
+                        <li id='displayname'>{% if request.user.first_name %}
+                            {{request.user.first_name}}
+                          {% else %}
+                            {{ request.user.username }}
+                          {% endif %}
+                        </li>                  
+                        <li>
+                        	{% if request.user.is_authenticated %}
+                        	{% else %}
+                        		<a href="/accounts/login">Login</a>
+                        	{% endif %}
+                        </li>
+                        <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+        </nav>
+    
+        
+        <div class="container">
+            <br><br><br>
+            <div class="row-md-2" style="positon:fixed">
+            <h1 class="logon" style="color: bisque; text-align:center; font-size:48px; font-family:monospace;">HEY, THERE! WANT SOME REAL NEWS?<br>HERE'S WHAT WE RECOMMEND</h1>
+            </div>
+            <div class="row-md-10">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                        <div class="well">
+                            <div id="upcoming" class="thumbnail">
+                                <p style="color:bisque; font-size: 24px; text-align:center;">THE HINDU</p>
+                                <a href="http://www.thehindu.com/elections/" style="color:white; font-size: 20px">Indian Assembly Elections</a>
+                            </div>      
+                        </div>
+                        <div class="well">
+                            <div id="upcoming" class="thumbnail">
+                                <p style="color:bisque; font-size: 24px; text-align:center;">THE WASHINGTON POST</p>
+                                <a href="https://www.washingtonpost.com/world/ecuador-searches-for-quake-survivors-as-death-toll-rises/2016/04/17/c5a444fc-04ae-11e6-bfed-ef65dff5970d_story.html?hpid=hp_no-name_hp-in-the-news%3Apage%2Fin-the-news" style="color:white; font-size: 20px">Ecuador Earthquake</a>
+                            </div>      
+                        </div>
+                        <div class="well">
+                            <div id="upcoming" class="thumbnail">
+                                <p style="color:bisque; font-size: 24px; text-align:center;">THE NEW YORK TIMES</p>
+                                <a href="http://www.nytimes.com/2016/04/18/world/americas/brazil-dilma-rousseff-impeachment-vote.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=first-column-region&region=top-news&WT.nav=top-news&_r=0" style="color:white; font-size: 20px">Brazil President Impeachment</a>
+                            </div>      
+                        </div>
+                        <div class="well">
+                            <div id="upcoming" class="thumbnail">
+                                <p style="color:bisque; font-size: 24px; text-align:center;">HINDUSTAN TIMES</p>
+                                <a href="http://www.hindustantimes.com/panama-papers" style="color:white; font-size: 20px">Panama Papers</a>
+                            </div>      
+                        </div>
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>  
+        </div>
+    </body>
+</html>
