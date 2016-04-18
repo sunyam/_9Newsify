@@ -33,6 +33,19 @@
         	#logo {
         		font-family: "sans-serif";
         	}
+            .navbar-brand {
+              padding: 0px;
+              
+            }
+            .navbar-brand>img {
+              height: 100%;
+              padding: 0px;
+              width: 80px;
+            }
+            
+
+            
+
         </style>
         
     </head>
@@ -48,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a id="logo" class="navbar-brand" href="http://127.0.0.1:8000/">NEWSIFY!</a>
+                  <a id="logo" class="navbar-brand" href="http://127.0.0.1:8000/"><img src="{% static 'home_page/css/img/newsify_logo.jpg' %}"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
