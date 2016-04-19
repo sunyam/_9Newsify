@@ -24,6 +24,7 @@ class Document(models.Model):
     	)
 
     categories = models.CharField(max_length=2, choices=categoryChoices, default='None')
-    #likers = models.ManyToManyField(UserProfile,blank=True)
+    likes = models.IntegerField(default=0) 
+    dislikes = models.IntegerField(default=0)
     
 

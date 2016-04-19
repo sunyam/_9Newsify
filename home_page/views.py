@@ -108,3 +108,20 @@ def specials(request):
         context_instance=RequestContext(request)
     )
 
+def upvote(request, photo_id):
+    
+    user_id = str(request.GET.get('id'))
+    
+    photo = Document.objects.get(pk=photo_id)
+    photo.likes += 1
+    photo.save()
+        
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def downvote(request, photo_id):
+    photo = Document.objects.get(pk=photo_id)
+    photo.dislikes += 1
+    photo.save()
+   
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

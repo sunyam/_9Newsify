@@ -8,4 +8,6 @@ urlpatterns = [
         url('^sports', views.cat_sports, name='cat_sports'),
         url('^misc', views.cat_misc, name='cat_misc'),
         url('^specials', views.specials, name='specials'),
+        url(r'^upvote/(?P<photo_id>[0-9]+)/$', views.upvote, name='upvote'),
+        url(r'^downvote/(?P<photo_id>[0-9]+)/$', views.downvote, name='downvote'),
     ]
