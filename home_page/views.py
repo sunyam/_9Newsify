@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 
 from home_page.models import Document
 from home_page.forms import DocumentForm
-
+import re
 # def home(request):
 #     return render(request, 'home_page/home.html')
 
@@ -113,15 +113,26 @@ def upvote(request, photo_id):
     user_id = str(request.GET.get('id'))
     
     photo = Document.objects.get(pk=photo_id)
-    photo.likes += 1
-    photo.save()
+    votes = photo.voters
+    
+    photo.voters += "_" + user_id
+    listery = re.findall('\d+', votes)
+    if user_id not in listery:
+        photo.likes += 1
+        photo.save()
         
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def downvote(request, photo_id):
+    user_id = str(request.GET.get('id'))
     photo = Document.objects.get(pk=photo_id)
-    photo.dislikes += 1
-    photo.save()
+    votes = photo.voters
+    
+    photo.voters += "_" + user_id
+    listery = re.findall('\d+', votes)
+    if user_id not in listery:
+        photo.dislikes += 1
+        photo.save()
    
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
