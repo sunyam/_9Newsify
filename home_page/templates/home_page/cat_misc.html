@@ -93,27 +93,34 @@
                                   <div class="col-sm-1"></div>
                                   <div class="col-sm-11">
                                       <div class="row">
-                                      <div class="col-sm-12 well">
+                                       <center> <b> <li id="file_caption">
+                                      {{document.title}}<br>
+                                     <!--  <div class="col-sm-12 well"> -->
                                             <div class="thumbnail">
 
                                             <center>  <li id="file_caption">
 
-                                            {{document.title}}<br>
+                                            <br>
+                                            <!-- {{document.categories}}<br> -->
+
                                             <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
                                                 </li>
 
-
-                                                {% if request.user.is_authenticated %}
-                                                   <!--LIKE DISLiKE-->
+                                            <div style="margin-top: 8px;margin-bottom: 8px">
+                                            {% if request.user.is_authenticated %} 
+                                                <!--LIKE DISLiKE-->
                                               <div class="stats">
                                                     <a href="upvote/{{document.id}}?id={{request.user.id}}" class="btn btn-default stat-item">
-                                                      <button id="like_button" ><i class="glyphicon glyphicon-thumbs-up"></i></button>{{document.likes}}
+                                                      <button id="like_button" ><i class="glyphicon glyphicon-thumbs-up "></i></button>{{document.likes}} 
                                                     </a>
+
+                                                    <span style="margin-left:2em">
                                                     <a href="downvote/{{document.id}}?id={{request.user.id}}" class="btn btn-default stat-item">
                                                         <button id="dislike_button" ><i class="glyphicon glyphicon-thumbs-down"></i></button>{{document.dislikes}}
                                                     </a>
                                                 </div>
-                                                {% endif %}
+                                              {% endif %}
+
                                             </div>
                                       </div>
                                     </div>
@@ -123,7 +130,7 @@
 
 
                               </div>
-                            {%endif%}
+                              {% endif %}
                             {% endfor %}
                         </ul>
                     {% else %}
