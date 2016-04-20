@@ -52,7 +52,7 @@
                         </div>
                         <button type="submit" class="btn btn-default">Search</button>
                     </form>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul id="navitem" class="nav navbar-nav navbar-right">
                         <li id='displayname'>{% if request.user.first_name %}
                             {{request.user.first_name}}
                           {% else %}
