@@ -122,20 +122,23 @@
 
                                             <br>
                                             <!-- {{document.categories}}<br> -->
+
                                             <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
                                                 </li>
 
-
+                                            <div style="margin-top: 8px;margin-bottom: 8px">
                                             {% if request.user.is_authenticated %} 
                                                 <!--LIKE DISLiKE-->
                                               <div class="stats">
                                                     <a href="upvote/{{document.id}}?id={{request.user.id}}" class="btn btn-default stat-item">
-                                                      <button id="like_button" ><i class="glyphicon glyphicon-thumbs-up"></i></button>{{document.likes}} 
+                                                      <button id="like_button" ><i class="glyphicon glyphicon-thumbs-up "></i></button>{{document.likes}} 
                                                     </a>
+
+                                                    <span style="margin-left:2em">
                                                     <a href="downvote/{{document.id}}?id={{request.user.id}}" class="btn btn-default stat-item">
                                                         <button id="dislike_button" ><i class="glyphicon glyphicon-thumbs-down"></i></button>{{document.dislikes}}
                                                     </a>
-                                                <!-- </div> -->
+                                                </div>
                                               {% endif %}
 
                                             </div>

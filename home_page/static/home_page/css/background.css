@@ -15,6 +15,7 @@ body{
        
 .thumbnail{
     background-color:#262626;
+    border-radius: 70px;
 }
             
 .well{
@@ -24,7 +25,7 @@ body{
 #absolute {
  position: fixed;
 top: 100px;
-left: 85%;
+left: 90%;
 margin-left:-250px;
 width: 500px; 
 }
@@ -44,9 +45,9 @@ width: 500px;
 
 
 #file_caption{
-    font-size:24px;
+    font-size:27px;
     font-family: sans-serif;
-    color:white;
+    color:#e6e6ff;
 }
         	
 #displayname {
