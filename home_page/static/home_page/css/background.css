@@ -14,8 +14,8 @@ body{
 }
        
 .thumbnail{
-    background-color:#262626;
-    border-radius: 60px;
+    background-color:black/*#262626*/;
+    border-radius: 30px;
 }
             
 .well{
@@ -47,7 +47,7 @@ width: 500px;
 #file_caption{
     font-size:27px;
     font-family: sans-serif;
-    color:#e6e6ff;
+    color:burlywood/*#e6e6ff*/;
 }
         	
 #displayname {

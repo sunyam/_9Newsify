@@ -46,12 +46,7 @@
                         <li><a href="http://127.0.0.1:8000/specials.html">Specials</a></li>    
                         
                     </ul>
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Search</button>
-                    </form>
+                    
                     <ul id="navitem" class="nav navbar-nav navbar-right">
                         <li id='displayname'>{% if request.user.first_name %}
                             {{request.user.first_name}}
@@ -93,14 +88,14 @@
                                   <div class="col-sm-1"></div>
                                   <div class="col-sm-11">
                                       <div class="row">
-                                       <center> <b> <li id="file_caption">
-                                      {{document.title}}<br>
+                                       
                                      <!--  <div class="col-sm-12 well"> -->
                                             <div class="thumbnail">
-
+                                                <center> <b> <li id="file_caption">
+                                                {{document.title}}
                                             <center>  <li id="file_caption">
 
-                                            <br>
+                                            
                                             <!-- {{document.categories}}<br> -->
 
                                             <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}" height = 300 width = 400>
