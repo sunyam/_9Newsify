@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.core.urlresolvers import reverse
-
+from django.views.decorators.csrf import csrf_exempt
 from home_page.models import Document
 from home_page.forms import DocumentForm
 import re
+import json
 # def home(request):
 #     return render(request, 'home_page/home.html')
 
@@ -108,10 +109,11 @@ def specials(request):
         context_instance=RequestContext(request)
     )
 
+@csrf_exempt
 def upvote(request, photo_id):
     
-    user_id = str(request.GET.get('id'))
-    
+    user_id = str(request.POST.get('id'))
+    print user_id
     photo = Document.objects.get(pk=photo_id)
     votes = photo.voters
     
@@ -120,12 +122,16 @@ def upvote(request, photo_id):
     if user_id not in listery:
         photo.likes += 1
         photo.save()
-        
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    response_data = {'res': 'true','count':photo.likes}
+    
 
+    return HttpResponse(json.dumps(response_data), content_type="application/json")    
+    
 
+@csrf_exempt
 def downvote(request, photo_id):
-    user_id = str(request.GET.get('id'))
+    user_id = str(request.POST.get('id'))
+    print user_id
     photo = Document.objects.get(pk=photo_id)
     votes = photo.voters
     
@@ -134,5 +140,5 @@ def downvote(request, photo_id):
     if user_id not in listery:
         photo.dislikes += 1
         photo.save()
-   
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    response_data = {'res': 'true','count':photo.dislikes}
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
