@@ -81,3 +81,32 @@ width: 500px;
 .active {
     background-color:;
 }
+#like_button{
+    padding: 10px 15px;
+    background: #4479BA;
+    color: #FFF;
+    border-radius: 12px;
+    border: 3px solid #FFF;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    
+}
+
+#like_button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    
+}
+#dislike_button{
+    padding: 10px 15px;
+    background: red;
+    color: #FFF;
+    border-radius: 12px;
+    border: 3px solid #FFF;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#dislike_button:hover {
+    background-color:black; /* Green */
+    color: white;
+}
