@@ -105,27 +105,24 @@
                                             {% if request.user.is_authenticated %} 
                                                 <!--LIKE DISLiKE-->
                                               <div class="stats">
-                                                    <a href="upvote/{{document.id}}?id={{request.user.id}}" class="btn btn-default stat-item">
-                                                      <button id="like_button" ><i class="glyphicon glyphicon-thumbs-up "></i></button>{{document.likes}} 
-                                                    </a>
+                                                        
+                                                              <button id="like_button" ><i class="glyphicon glyphicon-thumbs-up " id ="{{document.id}}">{{document.likes}} </i></button>
+                                                            
 
-                                                    <span style="margin-left:2em">
-                                                    <a href="downvote/{{document.id}}?id={{request.user.id}}" class="btn btn-default stat-item">
-                                                        <button id="dislike_button" ><i class="glyphicon glyphicon-thumbs-down"></i></button>{{document.dislikes}}
-                                                    </a>
+                                                            <span style="margin-left:2em">
+                                                            
+                                                                <button id="dislike_button" ><i class="glyphicon glyphicon-thumbs-down" id ="{{document.id}}">{{document.dislikes}}</i></button>
+                                                            
+                                                        </div>
+                                                      {% endif %}
+
                                                 </div>
-                                              {% endif %}
-
                                             </div>
-                                      </div>
+                                        </div>
                                     </div>
-                                  </div>
-
-                                  
-
-
-                              </div>
-                              {% endif %}
+                          
+                                </div>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     {% else %}
@@ -133,24 +130,67 @@
                     {% endif %}
                  </div>
                  
-             </div>
-             
+            </div>
                     
                     
                     
                     
         </div>
 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-    
-            
     </body>
+
+    <script type="text/javascript">
+    $(document).on('click', '.glyphicon-thumbs-up', function(){
+        documentid = $(this).attr('id');
+        console.log(documentid);
+        //console.log({{request.user.id}})
+        $.ajax({
+              type: 'POST',
+              url: "/upvote/"+documentid,
+              data: {'id':{{request.user.id}}},
+              success: function(data) {
+                if(data['res'] == 'true'){
+                    $(".glyphicon-thumbs-up").each(function(){
+                        console.log($(this).attr('id'));
+                        if($(this).attr('id') == documentid){
+                            console.log("in mathching id");
+                            console.log(this)
+                            //$(this).attr('') = data['count'];
+                            $(this).html(data['count']);
+                        }    
+                    })
+
+                }
+             }
+        
+        });
+    })
+
+    $(document).on('click', '.glyphicon-thumbs-down', function(){
+        documentid = $(this).attr('id');
+        console.log(documentid);
+        //console.log({{request.user.id}})
+        $.ajax({
+              type: 'POST',
+              url: "/downvote/"+documentid,
+              data: {'id':{{request.user.id}}},
+              success: function(data) {
+                if(data['res'] == 'true'){
+                    $(".glyphicon-thumbs-down").each(function(){
+                        console.log($(this).attr('id'));
+                        if($(this).attr('id') == documentid){
+                            console.log("in mathching id");
+                            console.log(this)
+                            //$(this).attr('') = data['count'];
+                            $(this).html(data['count']);
+                        }    
+                    })
+
+                }
+             }
+        
+        });
+    })
+
+</script>
 </html>
